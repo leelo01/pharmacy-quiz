@@ -63,10 +63,11 @@ body {
     line-height: 1.6;
 }
 
-/* Main Image */
+/* Main Image - 2x Bigger */
 .main-image {
     width: 100%;
-    max-width: 360px;
+    max-width: 500px;
+    min-width: 300px;
     height: auto;
     border-radius: 16px;
     margin: 16px auto;
