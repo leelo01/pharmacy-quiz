@@ -89,7 +89,7 @@ const questions = [
             { text: 'Movie Musicals', result: 'Pharmaceutics' },
             { text: 'Pop', result: 'IBS' },
             { text: 'Rap', result: 'Pharmacy Ethics' },
-            { text: 'Mahraganat', result: 'Organic Chemistry' } // tie-breaker choice
+            { text: 'Mahraganat', result: 'Organic Chemistry' }
         ]
     }
 ];
@@ -121,13 +121,20 @@ const resultColors = {
     'Analytical Chemistry': '#4a5568'
 };
 
+// Result image mapping
+const resultImages = {
+    'Organic Chemistry': 'organic.jpeg',
+    'Pharmacognosy': 'pharmacognosy.jpeg',
+    'Pharmaceutics': 'pharmaceutics.jpeg',
+    'Pharmacy Ethics': 'orientation and legslation.jpeg',
+    'IBS': 'ibs.jpeg',
+    'Analytical Chemistry': 'Analytical.jpeg'
+};
+
 let currentQuestion = 0;
 let scores = {};
 
 // DOM elements
-const introScreen = document.getElementById('introScreen');
-const quizScreen = document.getElementById('quizScreen');
-const resultScreen = document.getElementById('resultScreen');
 const startBtn = document.getElementById('startBtn');
 const restartBtn = document.getElementById('restartBtn');
 const questionText = document.getElementById('questionText');
@@ -135,19 +142,16 @@ const answersContainer = document.getElementById('answersContainer');
 const progressBar = document.getElementById('progressBar');
 const progressText = document.getElementById('progressText');
 
-// Initialize scores
 function initScores() {
     scores = {};
     allResults.forEach(r => scores[r] = 0);
 }
 
-// Show screen
 function showScreen(screenId) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(screenId).classList.add('active');
 }
 
-// Render question
 function renderQuestion(index) {
     const q = questions[index];
     questionText.textContent = `${index + 1}. ${q.question}`;
@@ -161,13 +165,11 @@ function renderQuestion(index) {
         answersContainer.appendChild(btn);
     });
 
-    // Update progress
     const progress = ((index) / questions.length) * 100;
     progressBar.style.width = `${progress}%`;
     progressText.textContent = `${index + 1} / ${questions.length}`;
 }
 
-// Handle answer
 function handleAnswer(result) {
     scores[result] = (scores[result] || 0) + 1;
 
@@ -179,18 +181,15 @@ function handleAnswer(result) {
     }
 }
 
-// Show results
 function showResults() {
     showScreen('resultScreen');
 
-    // Calculate percentages
     const total = Object.values(scores).reduce((a, b) => a + b, 0);
     const percentages = {};
     allResults.forEach(r => {
         percentages[r] = Math.round((scores[r] / total) * 100);
     });
 
-    // Find winner (with tie-breaker)
     let winner = allResults[0];
     let maxScore = scores[winner];
     for (let i = 1; i < allResults.length; i++) {
@@ -200,19 +199,21 @@ function showResults() {
         }
     }
 
-    // Display winner
+    const winnerImage = resultImages[winner];
     const winnerDiv = document.getElementById('resultWinner');
     winnerDiv.innerHTML = `
-        <div class="emoji">${resultEmojis[winner]}</div>
-        <h3>You are ${winner}!</h3>
-        <p style="color:#4a5568; margin-top:8px;">Your strongest match is ${winner}</p>
+        <div class="winner-content" style="background-image: url('${winnerImage}');">
+            <div class="overlay">
+                <div class="emoji">${resultEmojis[winner]}</div>
+                <h3>You are ${winner}!</h3>
+                <p>Your strongest match is ${winner}</p>
+            </div>
+        </div>
     `;
 
-    // Display chart
     const chartDiv = document.getElementById('resultChart');
     chartDiv.innerHTML = '';
 
-    // Sort by score descending
     const sorted = allResults.slice().sort((a, b) => percentages[b] - percentages[a]);
 
     sorted.forEach(result => {
@@ -235,7 +236,6 @@ function showResults() {
     });
 }
 
-// Start quiz
 function startQuiz() {
     initScores();
     currentQuestion = 0;
@@ -243,14 +243,11 @@ function startQuiz() {
     renderQuestion(0);
 }
 
-// Restart quiz
 function restartQuiz() {
     startQuiz();
 }
 
-// Event listeners
 startBtn.addEventListener('click', startQuiz);
 restartBtn.addEventListener('click', restartQuiz);
 
-// Show intro on load
 showScreen('introScreen');
