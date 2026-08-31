@@ -31,7 +31,7 @@ const questions = [
             { text: 'I absolutely hate change and will feel stressed/out of my comfort zone if addressed to it.', result: 'Analytical Chemistry' },
             { text: "I don't like change, but I will try my best to calmly avoid it or adjust to the new changes.", result: 'Pharmacy Ethics' },
             { text: "I don't mind change, as long as it's temporary and doesn't involve something major.", result: 'Pharmaceutics' },
-            { text: 'I love change! It\'s the only way of discovering new things in life and possibly better opportunities.', result: 'Organic Chemistry' }
+            { text: 'I love change! Its the only way of discovering new things in life and possibly better opportunities.', result: 'Organic Chemistry' }
         ]
     },
     {
@@ -93,10 +93,10 @@ const questions = [
     }
 ];
 
-const allResults = ['Organic Chemistry', 'Pharmacognosy', 'Pharmaceutics', 'Pharmacy Ethics', 'IBS', 'Analytical Chemistry'];
-const resultEmojis = { 'Organic Chemistry': '🧪', 'Pharmacognosy': '🌿', 'Pharmaceutics': '💊', 'Pharmacy Ethics': '⚖️', 'IBS': '🧠', 'Analytical Chemistry': '🔬' };
-const resultColors = { 'Organic Chemistry': '#9f7aea', 'Pharmacognosy': '#48bb78', 'Pharmaceutics': '#4299e1', 'Pharmacy Ethics': '#ed8936', 'IBS': '#f56565', 'Analytical Chemistry': '#4a5568' };
-const resultImages = { 'Organic Chemistry': 'organic.jpeg', 'Pharmacognosy': 'pharmacognosy.jpeg', 'Pharmaceutics': 'pharmaceutics.jpeg', 'Pharmacy Ethics': 'orientation and legslation.jpeg', 'IBS': 'ibs.jpeg', 'Analytical Chemistry': 'Analytical.jpeg' };
+const allResults = ['Organic Chemistry', 'Pharmacognosy', 'Pharmaceutics', 'Pharmacy Orientation, legislation, and Ethics', 'IBS', 'Analytical Chemistry'];
+const resultEmojis = { 'Organic Chemistry': '🧪', 'Pharmacognosy': '🌿', 'Pharmaceutics': '💊', 'Pharmacy Orientation, legislation, and Ethics': '⚖️', 'IBS': '🧠', 'Analytical Chemistry': '🔬' };
+const resultColors = { 'Organic Chemistry': '#9f7aea', 'Pharmacognosy': '#48bb78', 'Pharmaceutics': '#4299e1', 'Pharmacy Orientation, legislation, and Ethics': '#ed8936', 'IBS': '#f56565', 'Analytical Chemistry': '#4a5568' };
+const resultImages = { 'Organic Chemistry': 'organic.jpeg', 'Pharmacognosy': 'pharmacognosy.jpeg', 'Pharmaceutics': 'pharmaceutics.jpeg', 'Pharmacy Orientation, legislation, and Ethics': 'orientation and legslation.jpeg', 'IBS': 'ibs.jpeg', 'Analytical Chemistry': 'Analytical.jpeg' };
 
 const resultDescriptions = {
     'Analytical Chemistry': { description: 'Analytical chemistry is the branch of chemistry focused on identifying and quantifying the chemical components of substances. It involves various techniques and instruments to analyze samples, determine their composition, and ensure quality and safety in fields like pharmaceuticals, environmental science, and food testing.', traits: ['be an introvert', 'don\'t speak much, but know exactly what and when to speak', 'be a bookworm', 'live life at a slow and calm pace', 'prefer a small, close friend group over having many friends', 'be extremely organised', 'value every action you take throughout the day', 'have a great memory, rarely forgetful, and be talented at recalling things', 'be a quiet observer'] },
