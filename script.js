@@ -20,18 +20,18 @@ const questions = [
     {
         question: 'Usually, do you have your day fully planned?',
         answers: [
-            { text: 'Yes, I know exactly what to do...', result: 'Pharmaceutics' },
-            { text: 'Maybe, I can plan some errands...', result: 'Pharmacy Ethics' },
-            { text: 'No, I just wake up and go with the flow...', result: 'Organic Chemistry' }
+            { text: 'Yes, I know exactly what to do from the start till the end of the day.', result: 'Pharmaceutics' },
+            { text: 'Maybe, I can plan some errands for the day and leave some free time without any plans.', result: 'Pharmacy Ethics' },
+            { text: 'No, I just wake up and go with the flow of the day', result: 'Organic Chemistry' }
         ]
     },
     {
         question: 'When it comes to change... how do you handle it?',
         answers: [
-            { text: 'I absolutely hate change...', result: 'Analytical Chemistry' },
-            { text: "I don't like change, but I will try my best...", result: 'Pharmacy Ethics' },
-            { text: "I don't mind change, as long as it's temporary...", result: 'Pharmaceutics' },
-            { text: 'I love change! It\'s the only way of discovering...', result: 'Organic Chemistry' }
+            { text: 'I absolutely hate change and will feel stressed/out of my comfort zone if addressed to it.', result: 'Analytical Chemistry' },
+            { text: "I don't like change, but I will try my best to calmly avoid it or adjust to the new changes.", result: 'Pharmacy Ethics' },
+            { text: "I don't mind change, as long as it's temporary and doesn't involve something major.", result: 'Pharmaceutics' },
+            { text: 'I love change! It\'s the only way of discovering new things in life and possibly better opportunities.', result: 'Organic Chemistry' }
         ]
     },
     {
@@ -55,28 +55,28 @@ const questions = [
     {
         question: 'Which type of friend are you in a friend group?',
         answers: [
-            { text: 'The group leader', result: 'Pharmaceutics' },
-            { text: 'The group planner', result: 'Pharmacy Ethics' },
-            { text: 'The group therapist', result: 'Pharmacognosy' },
-            { text: 'The group entertainer', result: 'IBS' },
-            { text: 'The group anchor', result: 'Analytical Chemistry' }
+            { text: 'The group leader (prefers to take initiatives and has a voice everyone hears)', result: 'Pharmaceutics' },
+            { text: 'The group planner(plans where to go, when, and makes sure everythings in place)', result: 'Pharmacy Ethics' },
+            { text: 'The group therapist (the others rely on you for wise advice)', result: 'Pharmacognosy' },
+            { text: 'The group entertainer(knows all of the fun upcoming events, knows how to keep a light and fun mood in the group)', result: 'IBS' },
+            { text: 'The group anchor(usually calm, knows how to keep the ground stable and together.)', result: 'Analytical Chemistry' }
         ]
     },
     {
         question: 'What type of intelligence do you believe you have?',
         answers: [
-            { text: 'Book Smart', result: 'Analytical Chemistry' },
-            { text: 'Street Smart', result: 'Organic Chemistry' },
-            { text: 'People Smart', result: 'IBS' }
+            { text: 'Book Smart(can study well, get perfect grades, relies on analytical thinking)', result: 'Analytical Chemistry' },
+            { text: 'Street Smart(knows how to deal with dail challenges, relies on logical thinking)', result: 'Organic Chemistry' },
+            { text: 'People Smart(understands people easily , empathetic, good communicator)', result: 'IBS' }
         ]
     },
     {
         question: 'When taking a decision, you usually:',
         answers: [
-            { text: 'Analyze every step and try to predict...', result: 'Analytical Chemistry' },
-            { text: 'Choose the option with the least risks...', result: 'Pharmacy Ethics' },
-            { text: 'Ask yourself "what\'s in it for me?"...', result: 'Pharmaceutics' },
-            { text: "Don't think much, you just go with your gut...", result: 'Organic Chemistry' }
+            { text: 'Analyze every step and try to predict the outcome to see whether its suitable or not', result: 'Analytical Chemistry' },
+            { text: 'Choose the option with the least risks whatsoever', result: 'Pharmacy Ethics' },
+            { text: 'Ask yourself "what\'s in it for me?" before taking the decision', result: 'Pharmaceutics' },
+            { text: "Don't think much, you just go with your gut feels right", result: 'Organic Chemistry' }
         ]
     },
     {
