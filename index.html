@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Which Pharmacy Field Are You?</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container" id="app">
+        <!-- Intro Screen -->
+        <div id="introScreen" class="screen active">
+            <h1>🧪 Which Pharmacy Field Are You?</h1>
+            <p>Answer 10 questions to discover your perfect pharmacy career match!</p>
+            <button id="startBtn">Start Quiz →</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="screen">
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <span id="progressText">1 / 10</span>
+            </div>
+            <div id="questionContainer">
+                <h2 id="questionText">Loading...</h2>
+                <div id="answersContainer"></div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="screen">
+            <h2>🎉 Your Results</h2>
+            <div id="resultWinner" class="winner"></div>
+            <div id="resultChart" class="chart"></div>
+            <button id="restartBtn">Take Quiz Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
