@@ -108,13 +108,10 @@ const resultDescriptions = {
 };
 
 let currentQuestion = 0;
-let selectedAnswers = [];
 let scores = {};
 
 const startBtn = document.getElementById('startBtn');
 const restartBtn = document.getElementById('restartBtn');
-const previousBtn = document.getElementById('previousBtn');
-const nextBtn = document.getElementById('nextBtn');
 const questionText = document.getElementById('questionText');
 const answersContainer = document.getElementById('answersContainer');
 const progressBar = document.getElementById('progressBar');
@@ -123,7 +120,6 @@ const progressText = document.getElementById('progressText');
 function initScores() {
     scores = {};
     allResults.forEach(r => scores[r] = 0);
-    selectedAnswers = new Array(questions.length).fill(null);
 }
 
 function showScreen(screenId) {
@@ -131,18 +127,10 @@ function showScreen(screenId) {
     document.getElementById(screenId).classList.add('active');
 }
 
-function updateNavigation() {
-    previousBtn.disabled = currentQuestion === 0;
-    nextBtn.disabled = selectedAnswers[currentQuestion] === null;
-    nextBtn.textContent = currentQuestion === questions.length - 1 ? 'See Results →' : 'Next →';
-}
-
 function updateProgress() {
-    // Progress is based on the furthest question reached, so it fills by 10% each time Next is pressed.
-    const completed = Math.max(currentQuestion, selectedAnswers.filter(answer => answer !== null).length);
-    const progress = ((completed + (selectedAnswers[currentQuestion] !== null ? 1 : 0)) / questions.length) * 100;
-    progressBar.style.width = `${Math.min(progress, 100)}%`;
-    progressText.textContent = `${Math.min(completed + (selectedAnswers[currentQuestion] !== null ? 1 : 0), questions.length)} / ${questions.length}`;
+    const progress = ((currentQuestion + 1) / questions.length) * 100;
+    progressBar.style.width = `${progress}%`;
+    progressText.textContent = `${currentQuestion + 1} / ${questions.length}`;
 }
 
 function renderQuestion(index) {
@@ -151,56 +139,32 @@ function renderQuestion(index) {
     questionText.textContent = `${index + 1}. ${q.question}`;
     answersContainer.innerHTML = '';
 
-    q.answers.forEach((answer, answerIndex) => {
+    q.answers.forEach(answer => {
         const btn = document.createElement('button');
         btn.className = 'answer-btn';
+        btn.type = 'button';
         btn.textContent = answer.text;
-        if (selectedAnswers[index] === answerIndex) btn.classList.add('selected');
-        btn.addEventListener('click', () => selectAnswer(answerIndex));
+        btn.addEventListener('click', () => handleAnswer(answer.result));
         answersContainer.appendChild(btn);
     });
 
     updateProgress();
-    updateNavigation();
 }
 
-function selectAnswer(answerIndex) {
-    selectedAnswers[currentQuestion] = answerIndex;
-    document.querySelectorAll('.answer-btn').forEach((btn, index) => {
-        btn.classList.toggle('selected', index === answerIndex);
-    });
-    updateProgress();
-    updateNavigation();
-}
+function handleAnswer(result) {
+    scores[result] = (scores[result] || 0) + 1;
+    currentQuestion++;
 
-function goPrevious() {
-    if (currentQuestion > 0) renderQuestion(currentQuestion - 1);
-}
-
-function goNext() {
-    if (selectedAnswers[currentQuestion] === null) return;
-    if (currentQuestion < questions.length - 1) {
-        renderQuestion(currentQuestion + 1);
+    if (currentQuestion < questions.length) {
+        renderQuestion(currentQuestion);
     } else {
-        calculateScores();
         showResults();
     }
 }
 
-function calculateScores() {
-    scores = {};
-    allResults.forEach(r => scores[r] = 0);
-    selectedAnswers.forEach((answerIndex, questionIndex) => {
-        if (answerIndex !== null) {
-            const result = questions[questionIndex].answers[answerIndex].result;
-            scores[result]++;
-        }
-    });
-}
-
 function showResults() {
     showScreen('resultScreen');
-    const total = selectedAnswers.filter(a => a !== null).length;
+    const total = Object.values(scores).reduce((a, b) => a + b, 0);
     const percentages = {};
     allResults.forEach(r => percentages[r] = Math.round((scores[r] / total) * 100));
 
@@ -252,7 +216,5 @@ function restartQuiz() { startQuiz(); }
 
 startBtn.addEventListener('click', startQuiz);
 restartBtn.addEventListener('click', restartQuiz);
-previousBtn.addEventListener('click', goPrevious);
-nextBtn.addEventListener('click', goNext);
 
 showScreen('introScreen');
