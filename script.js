@@ -89,7 +89,7 @@ const questions = [
             { text: 'Movie Musicals', result: 'Pharmaceutics' },
             { text: 'Pop', result: 'IBS' },
             { text: 'Rap', result: 'Pharmacy Ethics' },
-            { text: 'Mahraganat', result: 'Organic Chemistry' } // tie-breaker choice
+            { text: 'Mahraganat', result: 'Organic Chemistry' }
         ]
     }
 ];
@@ -120,6 +120,17 @@ const resultColors = {
     'IBS': '#f56565',
     'Analytical Chemistry': '#4a5568'
 };
+
+// ============ ADD THIS SECTION ============
+const resultImages = {
+    'Organic Chemistry': 'organic.jpeg',
+    'Pharmacognosy': 'pharmacognosy.jpeg',
+    'Pharmaceutics': 'pharmaceutics.jpeg',
+    'Pharmacy Ethics': 'orientation and legslation.jpeg',
+    'IBS': 'ibs.jpeg',
+    'Analytical Chemistry': 'Analytical.jpeg'
+};
+// ==========================================
 
 let currentQuestion = 0;
 let scores = {};
@@ -179,7 +190,7 @@ function handleAnswer(result) {
     }
 }
 
-// Show results
+// ============ REPLACE THIS FUNCTION ============
 function showResults() {
     showScreen('resultScreen');
 
@@ -200,12 +211,19 @@ function showResults() {
         }
     }
 
-    // Display winner
+    // Get the winner's image
+    const winnerImage = resultImages[winner];
+
+    // Display winner with background image
     const winnerDiv = document.getElementById('resultWinner');
     winnerDiv.innerHTML = `
-        <div class="emoji">${resultEmojis[winner]}</div>
-        <h3>You are ${winner}!</h3>
-        <p style="color:#4a5568; margin-top:8px;">Your strongest match is ${winner}</p>
+        <div class="winner-content" style="background-image: url('${winnerImage}'); background-size: cover; background-position: center; min-height: 250px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; position: relative;">
+            <div style="background: rgba(255, 255, 255, 0.88); padding: 25px 30px; border-radius: 16px; width: 100%; max-width: 400px;">
+                <div class="emoji">${resultEmojis[winner]}</div>
+                <h3 style="font-size: 1.8rem; color: #553c9a; margin: 8px 0;">You are ${winner}!</h3>
+                <p style="color: #4a5568; margin-top: 8px;">Your strongest match is ${winner}</p>
+            </div>
+        </div>
     `;
 
     // Display chart
@@ -234,6 +252,7 @@ function showResults() {
         chartDiv.appendChild(item);
     });
 }
+// ==========================================
 
 // Start quiz
 function startQuiz() {
