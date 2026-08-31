@@ -1,14 +1,96 @@
 const questions = [
-    { question: 'Do you describe yourself as an introvert, extrovert, or an ambivert?', answers: [{ text: 'Introvert', result: 'Analytical Chemistry' }, { text: 'Extrovert', result: 'IBS' }, { text: 'Ambivert', result: 'Pharmacy Ethics' }] },
-    { question: 'How do you prefer spending your free time?', answers: [{ text: 'Learn something new', result: 'Pharmacognosy' }, { text: 'Travel somewhere new', result: 'IBS' }, { text: 'Attend a party/concert with friends', result: 'Pharmaceutics' }, { text: 'Read a book/novel', result: 'Analytical Chemistry' }, { text: 'Spend a cozy day at home', result: 'Pharmacy Ethics' }] },
-    { question: 'Usually, do you have your day fully planned?', answers: [{ text: 'Yes, I know exactly what to do...', result: 'Pharmaceutics' }, { text: 'Maybe, I can plan some errands...', result: 'Pharmacy Ethics' }, { text: 'No, I just wake up and go with the flow...', result: 'Organic Chemistry' }] },
-    { question: 'When it comes to change... how do you handle it?', answers: [{ text: 'I absolutely hate change...', result: 'Analytical Chemistry' }, { text: "I don't like change, but I will try my best...", result: 'Pharmacy Ethics' }, { text: "I don't mind change, as long as it's temporary...", result: 'Pharmaceutics' }, { text: 'I love change! It\'s the only way of discovering...', result: 'Organic Chemistry' }] },
-    { question: 'How could you best describe your style in outfits?', answers: [{ text: 'Smart Casual Fit', result: 'Pharmaceutics' }, { text: 'Boho/Floral Fit', result: 'Pharmacognosy' }, { text: 'Street Style Fit', result: 'IBS' }, { text: 'Creative/Unusual Fit', result: 'Organic Chemistry' }, { text: 'Cozy/Comfortable Fit', result: 'Pharmacy Ethics' }] },
-    { question: 'How many friends do you usually prefer?', answers: [{ text: 'a small, close friend group', result: 'Analytical Chemistry' }, { text: 'a big, fun friend group', result: 'IBS' }, { text: 'many friend groups...', result: 'Pharmaceutics' }] },
-    { question: 'Which type of friend are you in a friend group?', answers: [{ text: 'The group leader', result: 'Pharmaceutics' }, { text: 'The group planner', result: 'Pharmacy Ethics' }, { text: 'The group therapist', result: 'Pharmacognosy' }, { text: 'The group entertainer', result: 'IBS' }, { text: 'The group anchor', result: 'Analytical Chemistry' }] },
-    { question: 'What type of intelligence do you believe you have?', answers: [{ text: 'Book Smart', result: 'Analytical Chemistry' }, { text: 'Street Smart', result: 'Organic Chemistry' }, { text: 'People Smart', result: 'IBS' }] },
-    { question: 'When taking a decision, you usually:', answers: [{ text: 'Analyze every step and try to predict...', result: 'Analytical Chemistry' }, { text: 'Choose the option with the least risks...', result: 'Pharmacy Ethics' }, { text: 'Ask yourself "what\'s in it for me?"...', result: 'Pharmaceutics' }, { text: "Don't think much, you just go with your gut...", result: 'Organic Chemistry' }] },
-    { question: 'Finally! What is your taste in music?', answers: [{ text: 'Classical', result: 'Analytical Chemistry' }, { text: 'Jazz', result: 'Pharmacognosy' }, { text: 'Indie', result: 'Organic Chemistry' }, { text: 'Movie Musicals', result: 'Pharmaceutics' }, { text: 'Pop', result: 'IBS' }, { text: 'Rap', result: 'Pharmacy Ethics' }, { text: 'Mahraganat', result: 'Organic Chemistry' }] }
+    {
+        question: 'Do you describe yourself as an introvert, extrovert, or an ambivert?',
+        answers: [
+            { text: 'Introvert', result: 'Analytical Chemistry' },
+            { text: 'Extrovert', result: 'IBS' },
+            { text: 'Ambivert', result: 'Pharmacy Ethics' }
+        ]
+    },
+    {
+        question: 'How do you prefer spending your free time?',
+        answers: [
+            { text: 'Learn something new', result: 'Pharmacognosy' },
+            { text: 'Travel somewhere new', result: 'IBS' },
+            { text: 'Attend a party/concert with friends', result: 'Pharmaceutics' },
+            { text: 'Read a book/novel', result: 'Analytical Chemistry' },
+            { text: 'Spend a cozy day at home', result: 'Pharmacy Ethics' }
+        ]
+    },
+    {
+        question: 'Usually, do you have your day fully planned?',
+        answers: [
+            { text: 'Yes, I know exactly what to do...', result: 'Pharmaceutics' },
+            { text: 'Maybe, I can plan some errands...', result: 'Pharmacy Ethics' },
+            { text: 'No, I just wake up and go with the flow...', result: 'Organic Chemistry' }
+        ]
+    },
+    {
+        question: 'When it comes to change... how do you handle it?',
+        answers: [
+            { text: 'I absolutely hate change...', result: 'Analytical Chemistry' },
+            { text: "I don't like change, but I will try my best...", result: 'Pharmacy Ethics' },
+            { text: "I don't mind change, as long as it's temporary...", result: 'Pharmaceutics' },
+            { text: 'I love change! It\'s the only way of discovering...', result: 'Organic Chemistry' }
+        ]
+    },
+    {
+        question: 'How could you best describe your style in outfits?',
+        answers: [
+            { text: 'Smart Casual Fit', result: 'Pharmaceutics' },
+            { text: 'Boho/Floral Fit', result: 'Pharmacognosy' },
+            { text: 'Street Style Fit', result: 'IBS' },
+            { text: 'Creative/Unusual Fit', result: 'Organic Chemistry' },
+            { text: 'Cozy/Comfortable Fit', result: 'Pharmacy Ethics' }
+        ]
+    },
+    {
+        question: 'How many friends do you usually prefer?',
+        answers: [
+            { text: 'a small, close friend group', result: 'Analytical Chemistry' },
+            { text: 'a big, fun friend group', result: 'IBS' },
+            { text: 'many friend groups...', result: 'Pharmaceutics' }
+        ]
+    },
+    {
+        question: 'Which type of friend are you in a friend group?',
+        answers: [
+            { text: 'The group leader', result: 'Pharmaceutics' },
+            { text: 'The group planner', result: 'Pharmacy Ethics' },
+            { text: 'The group therapist', result: 'Pharmacognosy' },
+            { text: 'The group entertainer', result: 'IBS' },
+            { text: 'The group anchor', result: 'Analytical Chemistry' }
+        ]
+    },
+    {
+        question: 'What type of intelligence do you believe you have?',
+        answers: [
+            { text: 'Book Smart', result: 'Analytical Chemistry' },
+            { text: 'Street Smart', result: 'Organic Chemistry' },
+            { text: 'People Smart', result: 'IBS' }
+        ]
+    },
+    {
+        question: 'When taking a decision, you usually:',
+        answers: [
+            { text: 'Analyze every step and try to predict...', result: 'Analytical Chemistry' },
+            { text: 'Choose the option with the least risks...', result: 'Pharmacy Ethics' },
+            { text: 'Ask yourself "what\'s in it for me?"...', result: 'Pharmaceutics' },
+            { text: "Don't think much, you just go with your gut...", result: 'Organic Chemistry' }
+        ]
+    },
+    {
+        question: 'Finally! What is your taste in music?',
+        answers: [
+            { text: 'Classical', result: 'Analytical Chemistry' },
+            { text: 'Jazz', result: 'Pharmacognosy' },
+            { text: 'Indie', result: 'Organic Chemistry' },
+            { text: 'Movie Musicals', result: 'Pharmaceutics' },
+            { text: 'Pop', result: 'IBS' },
+            { text: 'Rap', result: 'Pharmacy Ethics' },
+            { text: 'Mahraganat', result: 'Organic Chemistry' }
+        ]
+    }
 ];
 
 const allResults = ['Organic Chemistry', 'Pharmacognosy', 'Pharmaceutics', 'Pharmacy Ethics', 'IBS', 'Analytical Chemistry'];
@@ -56,10 +138,11 @@ function updateNavigation() {
 }
 
 function updateProgress() {
-    const answered = selectedAnswers.filter(answer => answer !== null).length;
-    const progress = (answered / questions.length) * 100;
-    progressBar.style.width = `${progress}%`;
-    progressText.textContent = `${answered} / ${questions.length}`;
+    // Progress is based on the furthest question reached, so it fills by 10% each time Next is pressed.
+    const completed = Math.max(currentQuestion, selectedAnswers.filter(answer => answer !== null).length);
+    const progress = ((completed + (selectedAnswers[currentQuestion] !== null ? 1 : 0)) / questions.length) * 100;
+    progressBar.style.width = `${Math.min(progress, 100)}%`;
+    progressText.textContent = `${Math.min(completed + (selectedAnswers[currentQuestion] !== null ? 1 : 0), questions.length)} / ${questions.length}`;
 }
 
 function renderQuestion(index) {
@@ -105,7 +188,8 @@ function goNext() {
 }
 
 function calculateScores() {
-    initScores();
+    scores = {};
+    allResults.forEach(r => scores[r] = 0);
     selectedAnswers.forEach((answerIndex, questionIndex) => {
         if (answerIndex !== null) {
             const result = questions[questionIndex].answers[answerIndex].result;
