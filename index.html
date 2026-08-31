@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container" id="app">
-        <!-- Intro Screen -->
         <div id="introScreen" class="screen active">
             <h1>🧪 Which Pharmacy Field Are You?</h1>
             <p>if you were a pharmacy subject, what subject would you be? Learn about your future subjects by relating to yourself in terms of your own personal traits!!</p>
@@ -16,19 +15,21 @@
             <button id="startBtn">Start Quiz →</button>
         </div>
 
-        <!-- Quiz Screen -->
         <div id="quizScreen" class="screen">
             <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-                <span id="progressText">1 / 10</span>
+                <div class="progress-bar"><span id="progressBar"></span></div>
+                <span id="progressText">0 / 10</span>
             </div>
             <div id="questionContainer">
                 <h2 id="questionText">Loading...</h2>
                 <div id="answersContainer"></div>
             </div>
+            <div class="quiz-navigation">
+                <button id="previousBtn" class="nav-btn previous-btn">← Previous</button>
+                <button id="nextBtn" class="nav-btn next-btn" disabled>Next →</button>
+            </div>
         </div>
 
-        <!-- Result Screen -->
         <div id="resultScreen" class="screen">
             <h2>🎉 Your Results</h2>
             <div id="resultWinner" class="winner"></div>
@@ -36,7 +37,6 @@
             <button id="restartBtn">Take Quiz Again</button>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
