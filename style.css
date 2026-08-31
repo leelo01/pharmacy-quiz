@@ -35,19 +35,11 @@ body {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-#introScreen {
-    text-align: center;
-}
+#introScreen { text-align: center; }
 
 #introScreen h1 {
     font-size: 2rem;
@@ -154,9 +146,7 @@ button:hover {
     transform: translateX(4px);
 }
 
-.answer-btn:active {
-    transform: scale(0.98);
-}
+.answer-btn:active { transform: scale(0.98); }
 
 /* Results */
 .winner {
@@ -174,7 +164,6 @@ button:hover {
     min-height: 250px;
     border-radius: 16px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -200,9 +189,7 @@ button:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.winner-content .emoji {
-    font-size: 3rem;
-}
+.winner-content .emoji { font-size: 3rem; }
 
 .winner-content h3 {
     font-size: 1.8rem;
@@ -213,6 +200,62 @@ button:hover {
 .winner-content p {
     color: #4a5568;
     margin-top: 8px;
+}
+
+/* Detailed result information */
+.result-description {
+    margin-top: 24px;
+    text-align: left;
+}
+
+.subject-description {
+    color: #4a5568;
+    font-size: 1rem;
+    line-height: 1.7;
+    background: #f7fafc;
+    border-left: 4px solid #5a67d8;
+    padding: 18px 20px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 24px;
+}
+
+.traits-section {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 24px;
+}
+
+.traits-section h3 {
+    color: #2d3748;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.traits-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.traits-section li {
+    position: relative;
+    padding: 11px 14px 11px 34px;
+    background: #f7fafc;
+    border-radius: 10px;
+    color: #4a5568;
+    line-height: 1.45;
+}
+
+.traits-section li::before {
+    content: '✓';
+    position: absolute;
+    left: 12px;
+    font-weight: 700;
+    color: #5a67d8;
 }
 
 .chart {
@@ -270,39 +313,17 @@ button:hover {
     background: #48bb78;
 }
 
-#restartBtn:hover {
-    background: #38a169;
-}
+#restartBtn:hover { background: #38a169; }
 
 @media (max-width: 500px) {
-    .container {
-        padding: 20px;
-    }
-
-    #introScreen h1 {
-        font-size: 1.5rem;
-    }
-
-    .chart-item .label {
-        min-width: 100px;
-        font-size: 0.8rem;
-    }
-
-    .answer-btn {
-        font-size: 0.95rem;
-        padding: 12px 16px;
-    }
-
-    .winner-content {
-        min-height: 200px;
-        padding: 15px;
-    }
-
-    .winner-content .overlay {
-        padding: 20px;
-    }
-
-    .winner-content h3 {
-        font-size: 1.4rem;
-    }
+    .container { padding: 20px; }
+    #introScreen h1 { font-size: 1.5rem; }
+    .chart-item .label { min-width: 100px; font-size: 0.8rem; }
+    .answer-btn { font-size: 0.95rem; padding: 12px 16px; }
+    .winner-content { min-height: 200px; padding: 15px; }
+    .winner-content .overlay { padding: 20px; }
+    .winner-content h3 { font-size: 1.4rem; }
+    .subject-description { font-size: 0.95rem; padding: 16px; }
+    .traits-section { padding: 18px; }
+    .traits-section h3 { font-size: 1rem; }
 }
