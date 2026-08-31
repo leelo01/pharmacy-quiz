@@ -1,4 +1,3 @@
-// The complete scoring map from our analysis
 const questions = [
     {
         question: 'Do you describe yourself as an introvert, extrovert, or an ambivert?',
@@ -121,7 +120,6 @@ const resultColors = {
     'Analytical Chemistry': '#4a5568'
 };
 
-// ============ ADD THIS SECTION ============
 const resultImages = {
     'Organic Chemistry': 'organic.jpeg',
     'Pharmacognosy': 'pharmacognosy.jpeg',
@@ -130,15 +128,88 @@ const resultImages = {
     'IBS': 'ibs.jpeg',
     'Analytical Chemistry': 'Analytical.jpeg'
 };
-// ==========================================
+
+// Detailed descriptions shown for the winning result
+const resultDescriptions = {
+    'Analytical Chemistry': {
+        description: 'Analytical chemistry is the branch of chemistry focused on identifying and quantifying the chemical components of substances. It involves various techniques and instruments to analyze samples, determine their composition, and ensure quality and safety in fields like pharmaceuticals, environmental science, and food testing.',
+        traits: [
+            'be an introvert',
+            'don\'t speak much, but know exactly what and when to speak',
+            'be a bookworm',
+            'live life at a slow and calm pace',
+            'prefer a small, close friend group over having many friends',
+            'be extremely organised',
+            'value every action you take throughout the day',
+            'have a great memory, rarely forgetful, and be talented at recalling things',
+            'be a quiet observer'
+        ]
+    },
+    'IBS': {
+        description: 'Integrated Body Systems is the study of how the body’s major systems—like the nervous, cardiovascular, and respiratory systems—work together to maintain health and function. It highlights the interconnection between systems and is essential for understanding how the body responds to disease and treatment.',
+        traits: [
+            'be an extrovert',
+            'be the life of the party',
+            'be naturally funny',
+            'not be strict to the rules',
+            'be a multitasker',
+            'be an avid music listener',
+            'be a creative thinker',
+            'have a presence that everyone can feel',
+            'be highly interactive and reactive'
+        ]
+    },
+    'Pharmacy Ethics': {
+        description: 'Pharmacy Orientation, Legislation, and Ethics is a foundational area of pharmacy education that introduces students to the roles and responsibilities of pharmacists within the healthcare system. It covers the history and evolution of the pharmacy profession, key laws and regulations governing the practice, and the ethical principles that guide professional conduct. This subject emphasizes the importance of legal compliance, patient confidentiality, professional integrity, and ethical decision-making in ensuring safe and effective pharmaceutical care.',
+        traits: [
+            'be a strict rule follower',
+            'be extremely responsible',
+            'be honest',
+            'not take many risks',
+            'be a natural guardian',
+            'be someone people trust for advice and believe has wise opinions',
+            'be people smart—you understand people easily and know how to communicate with them and guide them'
+        ]
+    },
+    'Pharmaceutics': {
+        description: 'Pharmaceutics is the science of designing, developing, and manufacturing pharmaceutical dosage forms for safe and effective drug delivery. It encompasses the transformation of a drug substance into a usable medicine, ensuring optimal drug efficacy and patient safety.',
+        traits: [
+            'be a natural entrepreneur/leader',
+            'be street smart',
+            'adapt to change easily',
+            'have many different hobbies',
+            'be flexible',
+            'gain new knowledge to come up with your own unique ideas',
+            'be a problem solver who likes dealing with new challenges to solve and gain new experiences'
+        ]
+    },
+    'Pharmacognosy': {
+        description: 'Pharmacognosy is the study of medicinal drugs derived from natural sources such as plants, animals, and microorganisms. It involves the identification, extraction, and analysis of bioactive compounds, as well as understanding their biological effects and potential therapeutic uses. Pharmacognosy combines elements of botany, chemistry, and pharmacology, playing a crucial role in the discovery and development of new medications, especially in traditional and herbal medicine.',
+        traits: [
+            'rely on nature for treatment',
+            'love going out, exploring new places, and discovering different cultures',
+            'be patient and calm',
+            'handle problems gently',
+            'bring comfort to the room',
+            'have an artistic soul',
+            'be a good listener'
+        ]
+    },
+    'Organic Chemistry': {
+        description: 'Organic chemistry is the branch of chemistry that focuses on the structure, properties, composition, reactions, and synthesis of carbon-based compounds, which include not only hydrocarbons but also compounds with other elements like oxygen, nitrogen, sulfur, and halogens. It plays a central role in the development of pharmaceuticals, plastics, fuels, and many other products essential to modern life.',
+        traits: [
+            'be detail oriented',
+            'be tenacious and stubborn about a preferred hobby or routine',
+            'love patterns',
+            'be stress tolerant',
+            'be a perfectionist'
+        ]
+    }
+};
 
 let currentQuestion = 0;
 let scores = {};
 
-// DOM elements
-const introScreen = document.getElementById('introScreen');
-const quizScreen = document.getElementById('quizScreen');
-const resultScreen = document.getElementById('resultScreen');
 const startBtn = document.getElementById('startBtn');
 const restartBtn = document.getElementById('restartBtn');
 const questionText = document.getElementById('questionText');
@@ -146,19 +217,16 @@ const answersContainer = document.getElementById('answersContainer');
 const progressBar = document.getElementById('progressBar');
 const progressText = document.getElementById('progressText');
 
-// Initialize scores
 function initScores() {
     scores = {};
     allResults.forEach(r => scores[r] = 0);
 }
 
-// Show screen
 function showScreen(screenId) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(screenId).classList.add('active');
 }
 
-// Render question
 function renderQuestion(index) {
     const q = questions[index];
     questionText.textContent = `${index + 1}. ${q.question}`;
@@ -172,13 +240,11 @@ function renderQuestion(index) {
         answersContainer.appendChild(btn);
     });
 
-    // Update progress
     const progress = ((index) / questions.length) * 100;
     progressBar.style.width = `${progress}%`;
     progressText.textContent = `${index + 1} / ${questions.length}`;
 }
 
-// Handle answer
 function handleAnswer(result) {
     scores[result] = (scores[result] || 0) + 1;
 
@@ -190,18 +256,15 @@ function handleAnswer(result) {
     }
 }
 
-// ============ REPLACE THIS FUNCTION ============
 function showResults() {
     showScreen('resultScreen');
 
-    // Calculate percentages
     const total = Object.values(scores).reduce((a, b) => a + b, 0);
     const percentages = {};
     allResults.forEach(r => {
         percentages[r] = Math.round((scores[r] / total) * 100);
     });
 
-    // Find winner (with tie-breaker)
     let winner = allResults[0];
     let maxScore = scores[winner];
     for (let i = 1; i < allResults.length; i++) {
@@ -211,26 +274,32 @@ function showResults() {
         }
     }
 
-    // Get the winner's image
     const winnerImage = resultImages[winner];
-
-    // Display winner with background image
+    const winnerInfo = resultDescriptions[winner];
     const winnerDiv = document.getElementById('resultWinner');
+
     winnerDiv.innerHTML = `
-        <div class="winner-content" style="background-image: url('${winnerImage}'); background-size: cover; background-position: center; min-height: 250px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; position: relative;">
-            <div style="background: rgba(255, 255, 255, 0.88); padding: 25px 30px; border-radius: 16px; width: 100%; max-width: 400px;">
+        <div class="winner-content" style="background-image: url('${winnerImage}');">
+            <div class="overlay">
                 <div class="emoji">${resultEmojis[winner]}</div>
-                <h3 style="font-size: 1.8rem; color: #553c9a; margin: 8px 0;">You are ${winner}!</h3>
-                <p style="color: #4a5568; margin-top: 8px;">Your strongest match is ${winner}</p>
+                <h3>You are ${winner}!</h3>
+                <p>Your strongest match is ${winner}</p>
+            </div>
+        </div>
+        <div class="result-description">
+            <p class="subject-description">${winnerInfo.description}</p>
+            <div class="traits-section">
+                <h3>Because you got ${winner}, you're most likely to:</h3>
+                <ul>
+                    ${winnerInfo.traits.map(trait => `<li>${trait}</li>`).join('')}
+                </ul>
             </div>
         </div>
     `;
 
-    // Display chart
     const chartDiv = document.getElementById('resultChart');
     chartDiv.innerHTML = '';
 
-    // Sort by score descending
     const sorted = allResults.slice().sort((a, b) => percentages[b] - percentages[a]);
 
     sorted.forEach(result => {
@@ -252,9 +321,7 @@ function showResults() {
         chartDiv.appendChild(item);
     });
 }
-// ==========================================
 
-// Start quiz
 function startQuiz() {
     initScores();
     currentQuestion = 0;
@@ -262,14 +329,11 @@ function startQuiz() {
     renderQuestion(0);
 }
 
-// Restart quiz
 function restartQuiz() {
     startQuiz();
 }
 
-// Event listeners
 startBtn.addEventListener('click', startQuiz);
 restartBtn.addEventListener('click', restartQuiz);
 
-// Show intro on load
 showScreen('introScreen');
