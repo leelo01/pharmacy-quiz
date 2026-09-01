@@ -4,7 +4,7 @@ const questions = [
         answers: [
             { text: 'Introvert', result: 'Analytical Chemistry' },
             { text: 'Extrovert', result: 'IBS' },
-            { text: 'Ambivert', result: 'Pharmacy Ethics' }
+            { text: 'Ambivert', result: 'Pharmacy Orientation, legislation, and Ethics' }
         ]
     },
     {
@@ -14,14 +14,14 @@ const questions = [
             { text: 'Travel somewhere new', result: 'IBS' },
             { text: 'Attend a party/concert with friends', result: 'Pharmaceutics' },
             { text: 'Read a book/novel', result: 'Analytical Chemistry' },
-            { text: 'Spend a cozy day at home', result: 'Pharmacy Ethics' }
+            { text: 'Spend a cozy day at home', result: 'Pharmacy Orientation, legislation, and Ethics' }
         ]
     },
     {
         question: 'Usually, do you have your day fully planned?',
         answers: [
             { text: 'Yes, I know exactly what to do from the start till the end of the day.', result: 'Pharmaceutics' },
-            { text: 'Maybe, I can plan some errands for the day and leave some free time without any plans.', result: 'Pharmacy Ethics' },
+            { text: 'Maybe, I can plan some errands for the day and leave some free time without any plans.', result: 'Pharmacy Orientation, legislation, and Ethics' },
             { text: 'No, I just wake up and go with the flow of the day', result: 'Organic Chemistry' }
         ]
     },
@@ -29,7 +29,7 @@ const questions = [
         question: 'When it comes to change... how do you handle it?',
         answers: [
             { text: 'I absolutely hate change and will feel stressed/out of my comfort zone if addressed to it.', result: 'Analytical Chemistry' },
-            { text: "I don't like change, but I will try my best to calmly avoid it or adjust to the new changes.", result: 'Pharmacy Ethics' },
+            { text: "I don't like change, but I will try my best to calmly avoid it or adjust to the new changes.", result: 'Pharmacy Orientation, legislation, and Ethics' },
             { text: "I don't mind change, as long as it's temporary and doesn't involve something major.", result: 'Pharmaceutics' },
             { text: 'I love change! Its the only way of discovering new things in life and possibly better opportunities.', result: 'Organic Chemistry' }
         ]
@@ -41,7 +41,7 @@ const questions = [
             { text: 'Boho/Floral Fit', result: 'Pharmacognosy' },
             { text: 'Street Style Fit', result: 'IBS' },
             { text: 'Creative/Unusual Fit', result: 'Organic Chemistry' },
-            { text: 'Cozy/Comfortable Fit', result: 'Pharmacy Ethics' }
+            { text: 'Cozy/Comfortable Fit', result: 'Pharmacy Orientation, legislation, and Ethics' }
         ]
     },
     {
@@ -56,7 +56,7 @@ const questions = [
         question: 'Which type of friend are you in a friend group?',
         answers: [
             { text: 'The group leader (prefers to take initiatives and has a voice everyone hears)', result: 'Pharmaceutics' },
-            { text: 'The group planner(plans where to go, when, and makes sure everythings in place)', result: 'Pharmacy Ethics' },
+            { text: 'The group planner(plans where to go, when, and makes sure everythings in place)', result: 'Pharmacy Orientation, legislation, and Ethics' },
             { text: 'The group therapist (the others rely on you for wise advice)', result: 'Pharmacognosy' },
             { text: 'The group entertainer(knows all of the fun upcoming events, knows how to keep a light and fun mood in the group)', result: 'IBS' },
             { text: 'The group anchor(usually calm, knows how to keep the ground stable and together.)', result: 'Analytical Chemistry' }
@@ -74,7 +74,7 @@ const questions = [
         question: 'When taking a decision, you usually:',
         answers: [
             { text: 'Analyze every step and try to predict the outcome to see whether its suitable or not', result: 'Analytical Chemistry' },
-            { text: 'Choose the option with the least risks whatsoever', result: 'Pharmacy Ethics' },
+            { text: 'Choose the option with the least risks whatsoever', result: 'Pharmacy Orientation, legislation, and Ethics' },
             { text: 'Ask yourself "what\'s in it for me?" before taking the decision', result: 'Pharmaceutics' },
             { text: "Don't think much, you just go with your gut feels right", result: 'Organic Chemistry' }
         ]
@@ -87,7 +87,7 @@ const questions = [
             { text: 'Indie', result: 'Organic Chemistry' },
             { text: 'Movie Musicals', result: 'Pharmaceutics' },
             { text: 'Pop', result: 'IBS' },
-            { text: 'Rap', result: 'Pharmacy Ethics' },
+            { text: 'Rap', result: 'Pharmacy Orientation, legislation, and Ethics' },
             { text: 'Mahraganat', result: 'Organic Chemistry' }
         ]
     }
