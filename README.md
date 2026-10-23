@@ -47,6 +47,7 @@ pharmacy-quiz/
 2. Open the downloaded pharmacy-quiz folder.
 3. Open index.html in your browser.
 The quiz uses HTML, CSS, and JavaScript. If you make changes to the project, keep the image filenames and their references in the code consistent.
+
 🎯 Project Goals
 - Practice building an interactive website with core front-end technologies
 - Turn a specific idea into a usable digital experience
