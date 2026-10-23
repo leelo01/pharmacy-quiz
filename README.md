@@ -1,6 +1,9 @@
 Which Pharmacy Subject Are You? 💊
+
 A fun, interactive quiz that helps pharmacy students discover which pharmacy subject best matches their personality traits.
+
 🌐 Take the Quiz
+
 Try the live quiz
 📖 About the Project
 Have you ever wondered which pharmacy subject matches your personality? This quiz turns that question into a lighthearted, interactive experience.
